@@ -24,7 +24,7 @@ static const int QUIT       = 0x33;
 void showMenu() {
     printf("\nPlease choose a problem to solve.\n");
     printf("\t1) Find 2 numbers whose sum is 61.\n");
-    printf("\t2) Find 2 numbers whose difference is 10 and whose sume is 14.\n");
+    printf("\t2) Find 2 numbers whose difference is 10 and whose sum is 14.\n");
     printf("\t3) Quit.\n");
 }
 
