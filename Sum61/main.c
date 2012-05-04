@@ -14,24 +14,26 @@
 // ************
 // Declarations
 // ************
-static const int PROBLEM_1  = 0x31;
-static const int PROBLEM_2  = 0x32;
-static const int QUIT       = 0x33;
+static const int PROBLEM_1              = 0x31;
+static const int PROBLEM_1_DESCRIPTION  = 0x32;
+static const int PROBLEM_2              = 0x33;
+static const int QUIT                   = 0x30;
 
 // ************************************
 // Show menu of options to choose from.
 // ************************************
 void showMenu() {
     printf("\nPlease choose a problem to solve.\n");
-    printf("\t1) Find 2 numbers whose sum is 61.\n");
-    printf("\t2) Find 2 numbers whose difference is 10 and whose sum is 14.\n");
-    printf("\t3) Quit.\n");
+    printf("\t0) Quit.\n");
+    printf("\t1) Problem 1: Find 2 numbers (x,y) whose sum is 61 and y = x + 5.\n");
+    printf("\t2) Problem 1: Description\n");
+    printf("\t3) Problem 2: Find 2 numbers whose difference is 10 and whose sum is 14.\n");
 }
 
 // *******************************
 // Find 2 numbers whose sum is 61.
 // *******************************
-void problem1() {
+void problem1Description() {
     int sum     = 61;
     int vSum    = 0;
     int x       = 0;
@@ -58,17 +60,24 @@ void problem1() {
     
     printf("\t%d + %d = %d\n", x, y, vSum);
     
-    printf("\n\n*************************************************************\n");
-    printf("\n\tx = (%d - 5)/2\n", sum);
-    
+}
+
+void problem1() {
+    int sum     = 61;
+    int x       = 0;
+    int y       = 0;    
+
+    printf("Find 2 numbers (x,y) whose sum is 61 and y = x + 5.\n\n");
+    printf("\tFormula: 2x + 5 = %d\n", sum);
+    printf("\t\tx = (%d - 5)/2\n", sum);
+
     x = (sum - 5)/2;
-    printf("\tx = %d\n", x);
-    
-    printf("\ty = x + 5\n");
+    printf("\t\tx = %d\n", x);
+
+    printf("\t\ty = x + 5\n");
     y = x + 5;
-    
-    printf("\ty = %d\n", y);
-    
+
+    printf("\t\ty = %d\n", y);
 }
 
 // *******************************
@@ -126,6 +135,10 @@ int main(
         switch (input) {
             case PROBLEM_1:
                 problem1();
+                showMenu();
+                break;
+            case PROBLEM_1_DESCRIPTION:
+                problem1Description();
                 showMenu();
                 break;
             case PROBLEM_2:
