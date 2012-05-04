@@ -32,27 +32,43 @@ void showMenu() {
 // Find 2 numbers whose sum is 61.
 // *******************************
 void problem1() {
-    printf("Find 2 numbers whose sum is 61.\n\n");
-    
     int sum     = 61;
     int vSum    = 0;
     int x       = 0;
-    int y       = 0;
+    int y       = 0;    
+
+    printf("Find 2 numbers (x,y) whose sum is 61 where and y = x + 5.\n\n");
+    printf("\tx + (x + 5) = %d\n", sum);
+    printf("\t2x + 5 = %d\n", sum);
+    printf("\t2x = %d - 5\n", sum);
+    vSum = sum - 5;
     
-    for (x=1; x<=sum; x++) {
-        y       = x + 5;
-        vSum    = x + y;
-        
-        // Log each try to show pattern.
-        printf("%d + (%d) = %d\n", x, y, vSum);
-        if (vSum==sum) {
-            printf("We found our values!\n");
-            printf("\tValue1: %d\n", x);
-            printf("\tValue2: %d\n", y);
-            printf("\tSum: %d\n", vSum);
-            return;
-        }
-    }
+    printf("\t2x = %d\n", vSum);
+    printf("\tx = %d/2\n", vSum);
+    x = vSum/2;
+    
+    printf("\tx = %d\n", x);
+    printf("\ty = x + 5\n");
+    y = x + 5;
+
+    printf("\ty = %d\n", y);
+    
+    printf("\tx + y = %d\n", sum);
+    vSum = x + y;
+    
+    printf("\t%d + %d = %d\n", x, y, vSum);
+    
+    printf("\n\n*************************************************************\n");
+    printf("\n\tx = (%d - 5)/2\n", sum);
+    
+    x = (sum - 5)/2;
+    printf("\tx = %d\n", x);
+    
+    printf("\ty = x + 5\n");
+    y = x + 5;
+    
+    printf("\ty = %d\n", y);
+    
 }
 
 // *******************************
