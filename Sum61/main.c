@@ -32,6 +32,8 @@ void showMenu() {
 
 // *******************************
 // Find 2 numbers whose sum is 61.
+// where y = x + 5. Descriptive
+// breakdown of resolution.
 // *******************************
 void problem1Description() {
     int sum     = 61;
@@ -62,6 +64,10 @@ void problem1Description() {
     
 }
 
+// ******************************
+// Find 2 numbers whose sum is 61 
+// where y = x + 5.
+// ******************************
 void problem1() {
     int sum     = 61;
     int x       = 0;
