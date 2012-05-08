@@ -17,6 +17,7 @@
 static const int PROBLEM_1              = 0x31;
 static const int PROBLEM_1_DESCRIPTION  = 0x32;
 static const int PROBLEM_2              = 0x33;
+static const int PROBLEM_2_DESCRIPTION  = 0x34;
 static const int QUIT                   = 0x30;
 
 // ************************************
@@ -28,6 +29,7 @@ void showMenu() {
     printf("\t1) Problem 1: Find 2 numbers (x,y) whose sum is 61 and y = x + 5.\n");
     printf("\t2) Problem 1: Description\n");
     printf("\t3) Problem 2: Find 2 numbers whose difference is 10 and whose sum is 14.\n");
+    printf("\t4) Problem 2: Description\n");
 }
 
 // *******************************
@@ -90,38 +92,68 @@ void problem1() {
 // Find 2 numbers whose difference
 // is 10 and whose sum is 14.
 // *******************************
-void problem2() {
+void problem2Description() {
     printf("Difference of 2 numbers = 10\nSum of the 2 numbers = 14\n\n");
 
-    int dif = 10;
     int sum = 14;
-    int x   = sum;
-    int y   = 0;
-    
-    int vDif = 0;
+    int dif = 10;
     int vSum = 0;
+    int x = 0;
+    int y = 0;
+   
+    printf("Difference of 2 numbers = 10\nSum of the 2 numbers = 14\n\n");
     
-    //for (; x > 0; x--) {                              // Optimize solution by starting at high number.        
-    for (x=0; x < sum; x++) {        
+    printf("\tA) x + y = %d\n", sum);
+    printf("\tB) x - y = %d\n", dif);
+    
+    printf("\t----------------\n");
+    printf("\tB) x = y + %d\n", dif);
+    
+    printf("\t----------------\n");    
+    printf("\tC) (y + %d) + y = %d\n", dif, sum);
+    printf("\tC) 2y + %d = %d\n", dif, sum);
+    printf("\tC) 2y = %d - %d\n", sum, dif);
+    vSum = sum - dif;
+    
+    printf("\tC) 2y = %d\n", vSum);
+    printf("\tC) y = %d/2\n", vSum);
+    
+    y = vSum/2;
+    printf("\tC) y = %d\n", y);
+    
+    printf("\t----------------\n");
+    printf("\tA) x + %d = %d\n", y, sum);
+    printf("\tA) x = %d - %d\n", sum, y);
+    
+    x = sum - y;
+    printf("\tA) x = %d\n", x);
+}
 
-        // Determine which number is higher 
-        // and subtract the lower from it.
-        y = ( dif > x ) ? dif - x : x - dif;
-        
-        // Log each try to show pattern.
-        printf("x: %d | y: %d\n", x,y);
-        vDif    = ( x > y ) ? x - y : y - x;
-        vSum    = x + y;
-        
-        if (vSum == sum) {
-            printf("We found our values!\n");
-            printf("\tValue1: %d\n", x);
-            printf("\tValue2: %d\n", y);
-            printf("\tDif: %d\n", vDif);
-            printf("\tSum: %d\n", sum);
-            return;
-        }
-    }
+// *******************************
+// Find 2 numbers whose difference
+// is 10 and whose sum is 14.
+// *******************************
+void problem2() {
+    int x = 0;
+    int y = 0;
+    int sum = 14;
+    int dif = 10;
+    int vSum = 0;
+    //int vDif = 0;
+    
+    printf("Difference of 2 numbers = 10\nSum of the 2 numbers = 14\n\n");
+
+    printf("\tC) 2y + %d = %d\n", dif, sum);
+    vSum = sum - dif;
+
+    y = vSum/2;
+    printf("\tC) y = %d\n", y);
+    
+    printf("\tA) x + %d = %d\n", y, sum);
+    
+    x = sum - y;
+    printf("\tA) x = %d\n", x);
+    
 }
 
 // ************************
@@ -149,6 +181,10 @@ int main(
                 break;
             case PROBLEM_2:
                 problem2();
+                showMenu();
+                break;
+            case PROBLEM_2_DESCRIPTION:
+                problem2Description();
                 showMenu();
                 break;
             case QUIT:
